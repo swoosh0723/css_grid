@@ -1,0 +1,29 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 100px);
+  gap: 8px;
+
+  width: 300px;
+  background-color: #eee;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+    border: 1px solid aquamarine;
+    border-radius: 8px;
+    box-sizing: border-box;
+
+    font-size: 24px;
+
+    &:nth-child(1) {
+      grid-column: span 3;
+    }
+
+    &:nth-child(3) {
+      grid-column: span 2;
+    }
+  }
+}
