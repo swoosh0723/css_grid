@@ -144,20 +144,20 @@
 - 레이아웃 row의 개수와 크기 (`grid-template-rows`)
 ---
 
-### 2. 간격값 설정이 정말 쉽다   
+### 2. 간격 값 설정이 정말 쉽다   
 
 <img
    src="img/grid_03.png"
    title="grid 설명"
-   width="300px"
+   width="350px"
 />
 <img
    src="img/grid_04.png"
    title="grid 설명"
-   width="300px"
+   width="350px"
 />   
 
-이렇게 같은 component인데 버튼이 있는/없는 케이스는 마진을 어떻게 해야할까?
+component에서 버튼이 있는/없는 케이스는 마진을 어떻게 해야할까?   
 간격은 8px!
 ### Dom구조
 ```html
@@ -202,7 +202,7 @@
 <img
    src="img/grid_05.png"
    title="grid 설명"
-   width="300px"
+   width="350px"
 />   
 
 **grid**에는 간격을 위한 gap속성이 있다.   
@@ -227,7 +227,7 @@ flex에도 gap을 사용 할 수 있다.
 <img
    src="img/grid_05.png"
    title="grid 설명"
-   width="300px"
+   width="350px"
 />   
 
 ### Flex
@@ -274,4 +274,4 @@ gap은 동일한 간격에서만 사용 가능하다. 간격이 다를 경우에
 grid는 button, label 등에서 권장하지 않고   
 단순 요소를 옆으로 *`제목 + 버튼`* 경우에는 flex를 사용하는 것이 더 깔끔하다.   
 흑묘백묘(黑猫白猫)라고 하였다. 검은 고양이든 흰 고양이든 상관없이, 쥐를 잘 잡는 고양이가 좋은 고양이이다.   
-필요에 따라 grid, flex를 사용하도록 하자
+필요에 따라 grid, flex를 사용하도록 하자!
