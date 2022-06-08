@@ -21,7 +21,6 @@
       -ms-flex-pack: center;
           justify-content: center;
   background-color: pink;
-  border: 1px solid aquamarine;
   border-radius: 8px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -34,4 +33,101 @@
 
 .grid-container__item:nth-child(3) {
   grid-column: span 2;
+}
+
+.grid-container__item:nth-child(1) {
+  background: #ff4c4c;
+}
+
+.grid-container__item:nth-child(2) {
+  background: #ffa54b;
+}
+
+.grid-container__item:nth-child(3) {
+  background: #fbe754;
+}
+
+.grid-container__item:nth-child(4) {
+  background: #54fab5;
+}
+
+.grid-container__item:nth-child(5) {
+  background: #38a8f9;
+}
+
+.grid-container__item:nth-child(6) {
+  background: #7f3aee;
+}
+
+.grid-container2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.grid-container2__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: pink;
+  border-radius: 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 24px;
+  height: 150px;
+}
+
+.grid-container2__item--block1 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+}
+
+.grid-container2__item--block2, .grid-container2__item--block3 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(50% - 4px);
+          flex: 0 0 calc(50% - 4px);
+  margin-top: 8px;
+}
+
+.grid-container2__item--block4 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  margin-top: 8px;
+}
+
+.grid-container2__item:nth-child(1) {
+  background: #ff4c4c;
+}
+
+.grid-container2__item:nth-child(2) {
+  background: #ffa54b;
+}
+
+.grid-container2__item:nth-child(3) {
+  background: #fbe754;
+}
+
+.grid-container2__item:nth-child(4) {
+  background: #54fab5;
+}
+
+.grid-container2__item:nth-child(5) {
+  background: #38a8f9;
+}
+
+.grid-container2__item:nth-child(6) {
+  background: #7f3aee;
 }

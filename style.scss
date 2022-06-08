@@ -12,10 +12,8 @@
     align-items: center;
     justify-content: center;
     background-color: pink;
-    border: 1px solid aquamarine;
     border-radius: 8px;
     box-sizing: border-box;
-
     font-size: 24px;
 
     &:nth-child(1) {
@@ -24,6 +22,111 @@
 
     &:nth-child(3) {
       grid-column: span 2;
+    }
+
+    $blockColors: (
+      "1": #ff4c4c,
+      "2": #ffa54b,
+      "3": #fbe754,
+      "4": #54fab5,
+      "5": #38a8f9,
+      "6": #7f3aee,
+    );
+
+    @each $name, $color in $blockColors {
+      &:nth-child(#{$name}) {
+        background: $color;
+      }
+    }
+  }
+}
+
+// .grid-container2 {
+//   display: grid;
+//   grid-template-areas:
+//     "block1 block1"
+//     "block2 block3"
+//     "block4 block4";
+//   grid-template-columns: repeat(2, 1fr);
+//   grid-template-rows: repeat(3, 100px);
+//   gap: 8px;
+
+//   &__item {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     background-color: pink;
+//     border-radius: 8px;
+//     box-sizing: border-box;
+//     font-size: 24px;
+
+//     @for $i from 1 through 4 {
+//       &--block#{$i} {
+//         grid-area: block#{$i};
+//       }
+//     }
+
+//     $blockColors: (
+//       "1": #ff4c4c,
+//       "2": #ffa54b,
+//       "3": #fbe754,
+//       "4": #54fab5,
+//       "5": #38a8f9,
+//       "6": #7f3aee,
+//     );
+
+//     @each $name, $color in $blockColors {
+//       &:nth-child(#{$name}) {
+//         background: $color;
+//       }
+//     }
+//   }
+// }
+
+.grid-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 24px;
+
+    height: 150px;
+
+    &--block1 {
+      flex: 0 0 100%;
+    }
+
+    &--block2,
+    &--block3 {
+      flex: 0 0 calc(50% - 4px);
+      margin-top: 8px;
+    }
+
+    &--block4 {
+      flex: 0 0 100%;
+      margin-top: 8px;
+    }
+
+    $blockColors: (
+      "1": #ff4c4c,
+      "2": #ffa54b,
+      "3": #fbe754,
+      "4": #54fab5,
+      "5": #38a8f9,
+      "6": #7f3aee,
+    );
+
+    @each $name, $color in $blockColors {
+      &:nth-child(#{$name}) {
+        background: $color;
+      }
     }
   }
 }
