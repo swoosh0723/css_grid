@@ -140,8 +140,8 @@
 자식요소는 지정한 형태의 이름만 지정해주면 된다.
 - 레이아웃 형태 (`grid-template-areas`)
 - 레이아웃의 간격 (`gap`)
-- 레이아웃 column의 개수와 값 (`grid-template-columns`)
-- 레이아웃 row의 개수와 값 (`grid-template-rows`)
+- 레이아웃 column의 개수와 크기 (`grid-template-columns`)
+- 레이아웃 row의 개수와 크기 (`grid-template-rows`)
 ---
 
 ### 2. 간격값 설정이 정말 쉽다   
