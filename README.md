@@ -1,9 +1,9 @@
 # CSS Grid
-CSS Grid(그리드)는 2차원(행과 열)의 레이아웃 시스템을 제공합니다.   
+*CSS Grid(그리드)는 2차원(행과 열)의 레이아웃 시스템을 제공합니다.*   
 ## grid란?
-그리드는 수평선과 수직선으로 이루어진 집합체로, 디자인 요소를 정렬할 수 있는 대상 패턴을 생성한다. 이 디자인은 페이지에서 페이지로 이동할 때 요소가 널뛰거나 너비가 바뀌지 않는 디자인 생성에 도움을 주어 웹 사이트의 일관성을 높여준다.   
+*그리드는 수평선과 수직선으로 이루어진 집합체로, 디자인 요소를 정렬할 수 있는 대상 패턴을 생성한다. 이 디자인은 페이지에서 페이지로 이동할 때 요소가 널뛰거나 너비가 바뀌지 않는 디자인 생성에 도움을 주어 웹 사이트의 일관성을 높여준다.*   
 
-하나의 그리드은 대게 **columns**, **rows**로 구성되며, 각 행과 열 사이에 공백이 있는데, 대게는 이를 일컬어 **gutters**라고 부른다.   
+*하나의 그리드은 대게 **columns**, **rows**로 구성되며, 각 행과 열 사이에 공백이 있는데, 대게는 이를 일컬어 **gutters**라고 부른다.*   
 
 <img
    src="img/grid_01.png"
@@ -55,20 +55,19 @@ CSS Grid(그리드)는 2차원(행과 열)의 레이아웃 시스템을 제공�
    
    
 
-## Grid 장점?
+## Grid 장점? (Flex vs Grid)
 ### 1. 레이아웃 구성에 직관적이다.   
 
 <img
    src="img/grid_02.png"
    title="grid 설명"
-   width="250px"
+   width="300px"
 />   
 
-위 레이아웃을 구성하려면 어떻게 해야할까?   
-Flex VS Grid 비교해보자 (레이아웃 css만 표기함)
+위 레이아웃을 구성하려면 어떻게 해야할까? (레이아웃 css만 표기함)   
 
+### Dom구조
 ```html
-Dom구조
 <div class="grid-container2">
    <div class="grid-container2__item grid-container2__item--block1">1</div>
    <div class="grid-container2__item grid-container2__item--block2">2</div>
@@ -144,3 +143,135 @@ Dom구조
 - 레이아웃 column의 개수와 값 (`grid-template-columns`)
 - 레이아웃 row의 개수와 값 (`grid-template-rows`)
 ---
+
+### 2. 간격값 설정이 정말 쉽다   
+
+<img
+   src="img/grid_03.png"
+   title="grid 설명"
+   width="300px"
+/>
+<img
+   src="img/grid_04.png"
+   title="grid 설명"
+   width="300px"
+/>   
+
+이렇게 같은 component인데 버튼이 있는/없는 케이스는 마진을 어떻게 해야할까?
+간격은 8px!
+### Dom구조
+```html
+<div class="grid-container3">
+   <div class="grid-container3__item grid-container3__item--block1">1</div>
+   <div class="grid-container3__item grid-container3__item--block2">2</div>
+   <div class="grid-container3__item grid-container3__item--block3">3</div>
+   <div class="grid-container3__item grid-container3__item--block4">4</div>
+</div>
+<button>더보기 버튼</button>
+```
+
+### Flex
+```css
+.grid-container3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__item {
+    flex: 0 0 calc(50% - 4px);
+    height: 100px;
+    margin-bottom: 8px;
+
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+  }
+}
+```
+
+### Grid
+```css
+.grid-container3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 100px;
+  gap: 8px;
+}
+```
+
+<img
+   src="img/grid_05.png"
+   title="grid 설명"
+   width="300px"
+/>   
+
+**grid**에는 간격을 위한 gap속성이 있다.   
+위 이미지의 검은색 부분이 gap이 적용된 부분이다.   
+요소들 사이에만 적용이 된다.   
+반면에 **flex**사용하면 요소에 margin을 주고   
+마지막 요소 두개에 margin을 없애기 위하여 `nth-last-child(-n + 2)`를 추가 해야한다.
+
+---
+
+### 3. 1fr 단위
+위에서 grid의 장점은 gap이라고 하였는데   
+flex에도 gap을 사용 할 수 있다.   
+하지만 1fr 없는 gap 앙코없는 찐빵이다.
+
+#### 1fr란?   
+*fr이란 유연한 크기를 갖는 단위입니다.*   
+*그리드 컨테이너 내의 공간 비율을 분수(fraction)로 나타냅니다.*   
+*사용자가 계산해야 할 부분을 fr을 통해서 쉽고 유연하게 사용할 수 있습니다.*
+   
+
+<img
+   src="img/grid_05.png"
+   title="grid 설명"
+   width="300px"
+/>   
+
+### Flex
+```css
+.grid-container3 {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__item {
+    flex: 0 0 calc(50% - 4px);
+    height: 100px;
+  }
+}
+```
+
+### Grid
+```css
+.grid-container3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 100px;
+  gap: 8px;
+}
+```
+
+*flex*로 gap을 사용하려면 내가 계산을 하여 css를 기입해야한다.   
+`flex: 0 0 calc(50% - 4px)`   
+반면 *grid*는 1fr와 gap만 사용하면 된다.   
+
+1fr는 clac를 사용하지않고 유연한 레이아웃을 만들어준다.
+
+---
+
+## Grid의 단점
+grid의 단점은 browser 호환성이 제일 컸었다.   
+하지만 이제 explorer가 종료됨에 따라 사용해도 무방할듯하다.
+
+
+## 결론
+grid의 장점을 위주로 기재하여 flex는 안 좋게(?) 설명된 거 같은데 절대 그렇지 않다.   
+gap은 동일한 간격에서만 사용 가능하다. 간격이 다를 경우에는 사용하지 못한다.   
+grid는 button, label 등에서 권장하지 않고   
+단순 요소를 옆으로 *`제목 + 버튼`* 경우에는 flex를 사용하는 것이 더 깔끔하다.   
+흑묘백묘(黑猫白猫)라고 하였다. 검은 고양이든 흰 고양이든 상관없이, 쥐를 잘 잡는 고양이가 좋은 고양이이다.   
+필요에 따라 grid, flex를 사용하도록 하자
