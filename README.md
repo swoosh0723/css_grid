@@ -56,7 +56,7 @@
    
 
 ## Grid 장점? (Flex vs Grid)
-### 1. 레이아웃 구성에 직관적이다.   
+### 1. 레이아웃 구성에 직관적이고 간편하다.   
 
 <img
    src="img/grid_02.png"
@@ -144,6 +144,94 @@
 - 레이아웃 row의 개수와 크기 (`grid-template-rows`)
 ---
 
+### 1-1. 직관적이고 유연하다 `grid-template-areas`   
+**grid**는 `grid-template-areas` 속성이 있기 때문에 직관적이다.   
+아래의 레이아웃은 어떻게 구성해야할까?
+
+<img
+   src="img/grid_06.png"
+   title="grid 설명"
+   width="350px"
+/>
+
+### Dom
+```html
+<div class="grid-container4">
+   <div class="grid-container4__item grid-container4__item--title">Title</div>
+   <div class="grid-container4__item grid-container4__item--level">level</div>
+   <div class="grid-container4__item grid-container4__item--name">name</div>
+   <div class="grid-container4__item grid-container4__item--size">size</div>
+   <div class="grid-container4__item grid-container4__item--comment">comment</div>
+</div>
+```
+### Grid
+```css
+.grid-container4 {
+   display: grid;
+   grid-template-areas:
+      "title title title"
+      "level name size"
+      "comment comment comment";
+}
+```
+
+부모요소에 `grid-template-area` 선언 후 해당 요소에 `grid-area: title` 선언 하면된다.   
+부모요소에서 코드로 레이아웃 구조를 파악하는 것이 가능하다.   
+    
+또한 DOM구조와 무관하게 레이아웃을 구성 할 수 있다. 예를 들어보자
+1. 해당 페이지에선 size정보가 중요해서 아래에 크게 나오면 좋겠어요.
+2. 테블릿에선 comment가 title옆으로 갔으면 좋겠어요. (반응형)
+   
+위 두 문제를 어떻게 해야할까?   
+- position을 사용할까? -> 레이아웃의 불안정함
+- component를 분리하여 사용할까? -> 관리가 힘들어 비효율적
+- 하위 속성인 order 사용하자 -> 사용가능하지만 직관적이지 않다.
+   
+### `grid-template-area`으로 해결해보자   
+
+#### 1. 해당 페이지에선 size정보가 중요해서 아래에 크게 나오면 좋겠어요.
+<img
+   src="img/grid_07.png"
+   title="grid 설명"
+   width="350px"
+/>
+
+### Grid
+```css
+.grid-container4 {
+   display: grid;
+   grid-template-areas:
+    "title title title"
+    "level name comment"
+    "size size size";
+}
+```
+
+#### 2. 테블릿에선 comment가 title옆으로 갔으면 좋겠어요. (반응형)
+<img
+   src="img/grid_08.png"
+   title="grid 설명"
+   width="350px"
+/>
+
+### Grid
+```css
+.grid-container4 {
+   display: grid;
+   grid-template-areas:
+    "title title title"
+    "level name comment"
+    "size size size";
+
+    @media(min-width: 576px) and (min-height:1024px){
+      grid-template-areas:
+      "title title comment"
+      "level name size";
+    }
+}
+```
+
+---
 ### 2. 간격 값 설정이 정말 쉽다   
 
 <img
