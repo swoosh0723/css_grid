@@ -66,7 +66,8 @@
 />   
 
 위 레이아웃을 flex, grid를 사용해서 만들어보자.   
-아래의 DOM 구조로 직접 구성해보자. 그 후에 스크롤 아래로
+아래의 DOM 구조로 직접 구성해보자.   
+~~그 후에 스크롤 아래로~~
 
 #### Dom구조
 ```html
@@ -79,14 +80,17 @@
 ```
 
 flex로는 레이아웃 구성하기가 불가능하다.   
-flex로는 DOM구조를 변경해야하던가, 아님 `margin-top: -100px, transfrom: translate`을 사용하여 끔찍한 css 코드가 될 수 있다.   
+flex로는 DOM구조를 변경해야하던가,   
+`margin-top: -100px, transfrom: translate`을 사용하여 끔찍한 css 코드가 될 수 있다.   
 (flex로 가능하다면 알려주시면 감사하겠습니다)   
+
 반면 grid로는 쉽게 구성 할 수 있다.  
 또한 grid로는 다양한 레이아웃을 구성 할 수 있다.   
-아래 링크에서 다양한 레이아웃을 연습해보자.
-- https://gridbyexample.com/examples/
-  
 
+아래 링크에서 다양한 레이아웃을 연습해보자.
+> - https://gridbyexample.com/examples/
+  
+---
 ### 1. 레이아웃 구성에 직관적이고 간편하다.   
 
 <img
@@ -213,7 +217,7 @@ flex로는 DOM구조를 변경해야하던가, 아님 `margin-top: -100px, trans
 
 부모요소에 `grid-template-area` 선언 후 해당 요소에 `grid-area: title` 선언 하면된다.   
 부모요소에서 코드로 레이아웃 구조를 파악하는 것이 가능하다.   
-
+---
 ### 1-2. DOM구조에 구애를 받지않고 레이아웃을 구성 할 수 있다. `grid-template-areas`   
     
 예를 들어보자
