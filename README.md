@@ -56,17 +56,19 @@
    
 
 ## Grid 장점? (Flex vs Grid)
-### 1. 레이아웃 구성에 직관적이고 간편하다.   
+
+### 0. 다양한 레이아웃을 쉽게 구성할 수 있다.   
 
 <img
-   src="img/grid_02.png"
+   src="img/grid_09.png"
    title="grid 설명"
    width="300px"
 />   
 
-위 레이아웃을 구성하려면 어떻게 해야할까? (레이아웃 css만 표기함)   
+위 레이아웃을 flex, grid를 사용해서 만들어보자.   
+아래의 DOM 구조로 직접 구성해보자. 그 후에 스크롤 아래로
 
-### Dom구조
+#### Dom구조
 ```html
 <div class="grid-container2">
    <div class="grid-container2__item grid-container2__item--block1">1</div>
@@ -76,7 +78,37 @@
 </div>
 ```
 
-### Flex
+flex로는 레이아웃 구성하기가 불가능하다.   
+flex로는 DOM구조를 변경해야하던가, 아님 `margin-top: -100px, transfrom: translate`을 사용하여 끔찍한 css 코드가 될 수 있다.   
+(flex로 가능하다면 알려주시면 감사하겠습니다)   
+반면 grid로는 쉽게 구성 할 수 있다.  
+또한 grid로는 다양한 레이아웃을 구성 할 수 있다.   
+아래 링크에서 다양한 레이아웃을 연습해보자.
+- https://gridbyexample.com/examples/
+  
+
+### 1. 레이아웃 구성에 직관적이고 간편하다.   
+
+<img
+   src="img/grid_02.png"
+   title="grid 설명"
+   width="300px"
+/>   
+
+위 레이아웃을 구성하려면 어떻게 해야할까?    
+***레이아웃 css만 표기함***   
+
+#### Dom구조
+```html
+<div class="grid-container2">
+   <div class="grid-container2__item grid-container2__item--block1">1</div>
+   <div class="grid-container2__item grid-container2__item--block2">2</div>
+   <div class="grid-container2__item grid-container2__item--block3">3</div>
+   <div class="grid-container2__item grid-container2__item--block4">4</div>
+</div>
+```
+
+#### Flex
 ```css
 .grid-container2 {
   display: flex;
@@ -104,7 +136,7 @@
 }
 ```
 
-### Grid
+#### Grid
 ```css
 .grid-container2 {
   display: grid;
@@ -154,7 +186,7 @@
    width="350px"
 />
 
-### Dom
+#### Dom구조
 ```html
 <div class="grid-container4">
    <div class="grid-container4__item grid-container4__item--title">Title</div>
@@ -164,7 +196,7 @@
    <div class="grid-container4__item grid-container4__item--comment">comment</div>
 </div>
 ```
-### Grid
+#### Grid
 ```css
 .grid-container4 {
    display: grid;
@@ -172,13 +204,19 @@
       "title title title"
       "level name size"
       "comment comment comment";
+
+   &--item--title{
+      grid-area: title;
+   }
 }
 ```
 
 부모요소에 `grid-template-area` 선언 후 해당 요소에 `grid-area: title` 선언 하면된다.   
 부모요소에서 코드로 레이아웃 구조를 파악하는 것이 가능하다.   
+
+### 1-2. DOM구조에 구애를 받지않고 레이아웃을 구성 할 수 있다. `grid-template-areas`   
     
-또한 DOM구조와 무관하게 레이아웃을 구성 할 수 있다. 예를 들어보자
+예를 들어보자
 1. 해당 페이지에선 size정보가 중요해서 아래에 크게 나오면 좋겠어요.
 2. 테블릿에선 comment가 title옆으로 갔으면 좋겠어요. (반응형)
    
@@ -187,16 +225,17 @@
 - component를 분리하여 사용할까? -> 관리가 힘들어 비효율적
 - 하위 속성인 order 사용하자 -> 사용가능하지만 직관적이지 않다.
    
-### `grid-template-area`으로 해결해보자   
+#### `grid-template-area`으로 해결해보자   
 
-#### 1. 해당 페이지에선 size정보가 중요해서 아래에 크게 나오면 좋겠어요.
+***1. 해당 페이지에선 size정보가 중요해서 아래에 크게 나오면 좋겠어요.***  
+   
 <img
    src="img/grid_07.png"
    title="grid 설명"
    width="350px"
 />
 
-### Grid
+#### Grid
 ```css
 .grid-container4 {
    display: grid;
@@ -207,14 +246,15 @@
 }
 ```
 
-#### 2. 테블릿에선 comment가 title옆으로 갔으면 좋겠어요. (반응형)
+***2. 테블릿에선 comment가 title옆으로 갔으면 좋겠어요. (반응형)***   
+
 <img
    src="img/grid_08.png"
    title="grid 설명"
    width="350px"
 />
 
-### Grid
+#### Grid
 ```css
 .grid-container4 {
    display: grid;
@@ -247,7 +287,7 @@
 
 component에서 버튼이 있는/없는 케이스는 마진을 어떻게 해야할까?   
 간격은 8px!
-### Dom구조
+#### Dom구조
 ```html
 <div class="grid-container3">
    <div class="grid-container3__item grid-container3__item--block1">1</div>
@@ -258,7 +298,7 @@ component에서 버튼이 있는/없는 케이스는 마진을 어떻게 해야�
 <button>더보기 버튼</button>
 ```
 
-### Flex
+#### Flex
 ```css
 .grid-container3 {
   display: flex;
@@ -277,7 +317,7 @@ component에서 버튼이 있는/없는 케이스는 마진을 어떻게 해야�
 }
 ```
 
-### Grid
+#### Grid
 ```css
 .grid-container3 {
   display: grid;
@@ -318,7 +358,7 @@ flex에도 gap을 사용 할 수 있다.
    width="350px"
 />   
 
-### Flex
+#### Flex
 ```css
 .grid-container3 {
   display: flex;
@@ -333,7 +373,7 @@ flex에도 gap을 사용 할 수 있다.
 }
 ```
 
-### Grid
+#### Grid
 ```css
 .grid-container3 {
   display: grid;

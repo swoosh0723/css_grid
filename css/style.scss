@@ -249,6 +249,49 @@
   }
 }
 
+.grid-container5 {
+  display: grid;
+  grid-template-areas:
+    "block1 block1 block2"
+    "block4 block3 block2";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 100px);
+  gap: 8px;
+
+  &__item {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: pink;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 24px;
+
+    @for $i from 1 through 4 {
+      &--block#{$i} {
+        grid-area: block#{$i};
+      }
+    }
+
+    $blockColors: (
+      "1": #ff4c4c,
+      "2": #54fab5,
+      "3": #fbe754,
+      "4": #38a8f9,
+      "5": #38a8f9,
+      "6": #7f3aee,
+    );
+
+    @each $name, $color in $blockColors {
+      &:nth-child(#{$name}) {
+        background: $color;
+      }
+    }
+  }
+}
+
 button {
   display: flex;
   align-items: center;
