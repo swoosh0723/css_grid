@@ -405,15 +405,15 @@ grid는 DOM구조와 무관하게 `grid-template-areas`, `grid-auto-flow: dense`
 논리적으로 구성 후 일부에 대해서만 재정렬하기 때문에 크리티컬하지 않은 것 같다.   
 > 참고문서: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility
 ---
-## 언제 flex, grid를 사용 해야 할까 ?
+## 언제 flex, grid를 사용 해야 할까?
 마지막으로 flex, grid 언제 적절하게 사용해야할까?
 1. button, label 태그등에선 grid 사용을 지양
 2. 간격이 일정치 않으면 gap사용 보단 flex를 사용하여 margin, padding으로 간격을 주자(물론 gap을 사용하고 margin, padding을 사용하여 간격 변화를 줄 수 있다.)   
 3. **row가 한 줄 인 UI는 flex가 더 간단하다**
+
+~~당장 생각 나는 것은 세가지정도 이것에 대해선 다음에 더 자세히 ....~~
+
 ## 결론
 grid의 장점을 위주로 기재하여 flex는 안 좋게(?) 설명된 거 같은데 절대 그렇지 않다.   
-gap은 동일한 간격에서만 사용 가능하다. 간격이 다를 경우에는 사용하지 못한다.   
-grid는 button, label 등에서 권장하지 않고   
-단순 요소를 옆으로 *`제목 + 버튼`* 경우에는 flex를 사용하는 것이 더 깔끔하다.   
 흑묘백묘(黑猫白猫)라고 하였다. 검은 고양이든 흰 고양이든 상관없이, 쥐를 잘 잡는 고양이가 좋은 고양이이다.   
-필요에 따라 grid, flex를 사용하도록 하자!
+`언제 flex, grid를 사용 해야 할까?`에서 봤듯이 상황에 맞춰 flex, grid를 적절하게 사용하면 좋을 거 같다.
