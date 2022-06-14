@@ -392,10 +392,24 @@ flex에도 gap을 사용 할 수 있다.
 ---
 
 ## Grid의 단점
-grid의 단점은 browser 호환성이 제일 컸었다.   
-하지만 이제 explorer가 종료됨에 따라 사용해도 무방할듯하다. (그럼 단점이 없을지도...?)
+grid의 단점은 크게 두가지이다.   
+browser ***호환성***과 ***웹표준***.   
 
+browser ***호환성*** 이슈는 이제 explorer11가 역사의 뒤안길로 사라짐에 따라 해당이슈는 해결되었다.
 
+제일 문제 되는 ***접근성***이다.   
+grid는 DOM구조와 무관하게 `grid-template-areas`, `grid-auto-flow: dense`, `order` 등을 통해 레이아웃을 재정렬 할 수 있습니다.   
+하지만 이러한 정렬은 논리적인 재정렬이 아닌 **시각적인 정렬**만 수행하여 텍스트 음성 변환, 문서의 탭순서는 변경하지 않습니다.   
+
+이것 또한 실무에서 우리는 DOM구조를 비논리적으로 구성하고 grid로 재정렬을 하지 않는다.   
+논리적으로 구성 후 일부에 대해서만 재정렬하기 때문에 크리티컬하지 않은 것 같다.   
+> 참고문서: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/CSS_Grid_Layout_and_Accessibility
+---
+## 언제 flex, grid를 사용 해야 할까 ?
+마지막으로 flex, grid 언제 적절하게 사용해야할까?
+1. button, label 태그등에선 grid 사용을 지양
+2. 간격이 일정치 않으면 gap사용 보단 flex를 사용하여 margin, padding으로 간격을 주자(물론 gap을 사용하고 margin, padding을 사용하여 간격 변화를 줄 수 있다.)   
+3. **row가 한 줄 인 UI는 flex가 더 간단하다**
 ## 결론
 grid의 장점을 위주로 기재하여 flex는 안 좋게(?) 설명된 거 같은데 절대 그렇지 않다.   
 gap은 동일한 간격에서만 사용 가능하다. 간격이 다를 경우에는 사용하지 못한다.   
