@@ -217,7 +217,9 @@ flex로는 DOM구조를 변경해야하던가,
 
 부모요소에 `grid-template-area` 선언 후 해당 요소에 `grid-area: title` 선언 하면된다.   
 부모요소에서 코드로 레이아웃 구조를 파악하는 것이 가능하다.   
+
 ---
+
 ### 1-2. DOM구조에 구애를 받지않고 레이아웃을 구성 할 수 있다. `grid-template-areas`   
     
 예를 들어보자
